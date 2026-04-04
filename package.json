@@ -1,0 +1,51 @@
+{
+  "name": "sitehealth-mcp",
+  "version": "0.1.0",
+  "description": "Full website health audit in one MCP tool call — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, broken links",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "sitehealth-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "website-audit",
+    "ssl",
+    "dns",
+    "dmarc",
+    "spf",
+    "dkim",
+    "performance",
+    "uptime",
+    "broken-links",
+    "seo",
+    "site-health"
+  ],
+  "author": "Freedom Engineers <hello@freedomengineers.tech>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/carsonroell-debug/sitehealth-mcp.git"
+  },
+  "homepage": "https://github.com/carsonroell-debug/sitehealth-mcp#readme",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}

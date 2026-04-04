@@ -1,0 +1,51 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.carsonroell-debug/sitehealth-mcp",
+  "title": "SiteHealth MCP",
+  "description": "Full website health audit in one tool call — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, and broken links. Zero API keys required.",
+  "version": "0.1.0",
+  "websiteUrl": "https://freedomengineers.tech",
+  "repository": {
+    "url": "https://github.com/carsonroell-debug/sitehealth-mcp"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "sitehealth-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "name": "audit_site",
+      "description": "Full website health audit — SSL, DNS, email auth, performance, uptime, broken links. Returns 0-100 score with recommendations."
+    },
+    {
+      "name": "check_ssl",
+      "description": "SSL certificate validity, expiry, issuer, and protocol check"
+    },
+    {
+      "name": "check_dns",
+      "description": "DNS record resolution — A, AAAA, MX, NS, CNAME, TXT, SOA"
+    },
+    {
+      "name": "check_email_auth",
+      "description": "Validate DMARC, SPF, and DKIM records with fix recommendations"
+    },
+    {
+      "name": "check_performance",
+      "description": "Page speed — TTFB, load time, page weight, compression, caching"
+    },
+    {
+      "name": "check_uptime",
+      "description": "HTTP ping with response time measurement"
+    },
+    {
+      "name": "check_links",
+      "description": "Scan page for broken links (4xx/5xx responses)"
+    }
+  ]
+}
