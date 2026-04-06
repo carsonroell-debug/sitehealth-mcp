@@ -12,6 +12,8 @@
 
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
+import { createServer } from "http";
 import { z } from "zod";
 import { checkSsl } from "./lib/ssl-checker.js";
 import { checkDns } from "./lib/dns-checker.js";
@@ -209,9 +211,39 @@ server.registerTool(
 // --- Start ---
 
 async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("SiteHealth MCP server started");
+  const port = process.env.PORT ? parseInt(process.env.PORT) : undefined;
+  if (port) {
+    // SSE mode for cloud deployments (MCPize, etc.)
+    const transports: Record<string, SSEServerTransport> = {};
+    const httpServer = createServer(async (req, res) => {
+      const url = new URL(req.url ?? "/", `http://localhost:${port}`);
+      if (url.pathname === "/sse" && req.method === "GET") {
+        const transport = new SSEServerTransport("/messages", res);
+        transports[transport.sessionId] = transport;
+        transport.onclose = () => { delete transports[transport.sessionId]; };
+        await server.connect(transport);
+        await transport.start();
+      } else if (url.pathname === "/messages" && req.method === "POST") {
+        const sessionId = url.searchParams.get("sessionId") ?? "";
+        const transport = transports[sessionId];
+        if (!transport) { res.writeHead(404).end("Session not found"); return; }
+        let body = "";
+        req.on("data", (c: Buffer) => { body += c.toString(); });
+        req.on("end", () => { transport.handlePostMessage(req, res, JSON.parse(body)); });
+      } else if (url.pathname === "/" || url.pathname === "/health") {
+        res.writeHead(200, { "Content-Type": "application/json" }).end(JSON.stringify({ status: "ok" }));
+      } else {
+        res.writeHead(404).end("Not found");
+      }
+    });
+    httpServer.listen(port, () => {
+      console.error(`SiteHealth MCP server listening on port ${port} (SSE mode)`);
+    });
+  } else {
+    const transport = new StdioServerTransport();
+    await server.connect(transport);
+    console.error("SiteHealth MCP server started");
+  }
 }
 
 main().catch((err) => {

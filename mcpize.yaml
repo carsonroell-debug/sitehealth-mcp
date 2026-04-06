@@ -1,0 +1,10 @@
+name: sitehealth-mcp
+description: Full website health audit in one MCP tool call — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, broken links. Zero API keys required.
+runtime: typescript
+entry: dist/index.js
+build:
+  install: npm ci
+  command: npm run build
+transport: stdio
+bridge:
+  mode: stdio
