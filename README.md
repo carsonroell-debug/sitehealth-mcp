@@ -1,8 +1,14 @@
 # SiteHealth MCP
 
+[![npm](https://img.shields.io/npm/v/sitehealth-mcp)](https://www.npmjs.com/package/sitehealth-mcp)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![MCPize](https://img.shields.io/badge/MCPize-Install-22c55e)](https://mcpize.com/mcp/sitehealth-mcp)
+
 Full website health audit in one MCP tool call. Zero API keys required.
 
 **One call. Six checks. Scored report.**
+
+> **One-click install:** [Install on MCPize](https://mcpize.com/mcp/sitehealth-mcp) | `npx sitehealth-mcp`
 
 ## Features
 
@@ -91,6 +97,23 @@ audit_site("example.com")
 | Links | 15% |
 | DNS | 10% |
 
+## Install
+
+### MCPize (Recommended)
+
+One-click install with managed hosting: **[Install on MCPize](https://mcpize.com/mcp/sitehealth-mcp)**
+
+### npm
+
+```bash
+npx sitehealth-mcp
+```
+
 ## License
 
 MIT — Built by [Freedom Engineers](https://freedomengineers.tech)
+
+## Related
+
+- [SelfHeal MCP](https://mcpize.com/mcp/selfheal-mcp) — Self-healing proxy for MCP servers
+- [LeadEnrich MCP](https://mcpize.com/mcp/leadenrich-mcp) — Waterfall lead enrichment
