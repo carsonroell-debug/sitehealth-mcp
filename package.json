@@ -1,5 +1,6 @@
 {
   "name": "sitehealth-mcp",
+  "mcpName": "io.github.carsonroell-debug/sitehealth-mcp",
   "version": "0.1.0",
   "description": "Full website health audit in one MCP tool call — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, broken links",
   "type": "module",

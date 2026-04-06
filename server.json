@@ -2,11 +2,12 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.carsonroell-debug/sitehealth-mcp",
   "title": "SiteHealth MCP",
-  "description": "Full website health audit in one tool call — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, and broken links. Zero API keys required.",
+  "description": "Full website health audit — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, links",
   "version": "0.1.0",
   "websiteUrl": "https://freedomengineers.tech",
   "repository": {
-    "url": "https://github.com/carsonroell-debug/sitehealth-mcp"
+    "url": "https://github.com/carsonroell-debug/sitehealth-mcp",
+    "source": "github"
   },
   "packages": [
     {
