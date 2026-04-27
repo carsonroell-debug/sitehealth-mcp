@@ -2,13 +2,13 @@
 
 [![npm](https://img.shields.io/npm/v/sitehealth-mcp)](https://www.npmjs.com/package/sitehealth-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MCPize](https://img.shields.io/badge/MCPize-Install-22c55e)](https://mcpize.com/mcp/sitehealth-mcp)
+[![MCPize](https://img.shields.io/badge/MCPize-Install-22c55e)](https://mcpize.com/mcp/sitehealth-mcp?ref=YHCCR&utm_source=github&utm_medium=readme)
 
 Full website health audit in one MCP tool call. Zero API keys required.
 
 **One call. Six checks. Scored report.**
 
-> **One-click install:** [Install on MCPize](https://mcpize.com/mcp/sitehealth-mcp) | `npx sitehealth-mcp`
+> **One-click install:** [Install on MCPize](https://mcpize.com/mcp/sitehealth-mcp?ref=YHCCR&utm_source=github&utm_medium=readme) | `npx sitehealth-mcp`
 
 ## Features
 
@@ -48,6 +48,22 @@ Then ask your AI agent:
 | `check_performance` | TTFB, load time, page weight |
 | `check_uptime` | HTTP ping + response time |
 | `check_links` | Broken link detection |
+
+## Free vs Pro
+
+| Tool | Free | Pro ($19/mo) |
+|------|------|-------------|
+| `check_ssl` | Yes | Yes |
+| `check_dns` | Yes | Yes |
+| `audit_site` | - | Yes |
+| `check_email_auth` | - | Yes |
+| `check_performance` | - | Yes |
+| `check_uptime` | - | Yes |
+| `check_links` | - | Yes |
+
+Free tier gives you SSL and DNS checks. Pro unlocks the full 6-check audit with A-F scoring, email authentication, performance, uptime, and broken link detection.
+
+**[Upgrade to Pro on MCPize](https://mcpize.com/mcp/sitehealth-mcp?ref=YHCCR&utm_source=github&utm_medium=readme)** — $19/mo or $190/yr.
 
 ## Example Output
 
@@ -101,7 +117,7 @@ audit_site("example.com")
 
 ### MCPize (Recommended)
 
-One-click install with managed hosting: **[Install on MCPize](https://mcpize.com/mcp/sitehealth-mcp)**
+One-click install with managed hosting: **[Install on MCPize](https://mcpize.com/mcp/sitehealth-mcp?ref=YHCCR&utm_source=github&utm_medium=readme)**
 
 ### npm
 
@@ -115,5 +131,5 @@ MIT — Built by [Freedom Engineers](https://freedomengineers.tech)
 
 ## Related
 
-- [SelfHeal MCP](https://mcpize.com/mcp/selfheal-mcp) — Self-healing proxy for MCP servers
-- [LeadEnrich MCP](https://mcpize.com/mcp/leadenrich-mcp) — Waterfall lead enrichment
+- [SelfHeal MCP](https://mcpize.com/mcp/selfheal-mcp?ref=YHCCR&utm_source=github&utm_medium=readme) — Self-healing proxy for MCP servers
+- [LeadEnrich MCP](https://mcpize.com/mcp/leadenrich-mcp?ref=YHCCR&utm_source=github&utm_medium=readme) — Waterfall lead enrichment
