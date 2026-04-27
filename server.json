@@ -3,7 +3,7 @@
   "name": "io.github.carsonroell-debug/sitehealth-mcp",
   "title": "SiteHealth MCP",
   "description": "Full website health audit — SSL, DNS, DMARC/SPF/DKIM, performance, uptime, links",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://freedomengineers.tech",
   "repository": {
     "url": "https://github.com/carsonroell-debug/sitehealth-mcp",
@@ -13,7 +13,7 @@
     {
       "registryType": "npm",
       "identifier": "sitehealth-mcp",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "transport": {
         "type": "stdio"
       }

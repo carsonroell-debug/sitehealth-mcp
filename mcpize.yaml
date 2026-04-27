@@ -5,6 +5,4 @@ entry: dist/index.js
 build:
   install: npm ci
   command: npm run build
-transport: stdio
-bridge:
-  mode: stdio
+transport: sse
