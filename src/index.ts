@@ -23,25 +23,6 @@ import { checkUptime } from "./lib/uptime-checker.js";
 import { checkLinks } from "./lib/link-checker.js";
 import { buildReport } from "./lib/report-builder.js";
 
-// --- MCPize License Gating ---
-const MCPIZE_LICENSE_KEY = process.env.MCPIZE_LICENSE_KEY ?? "";
-const isPro = !!MCPIZE_LICENSE_KEY;
-
-const PRO_UPGRADE_MSG = JSON.stringify({
-  error: "Pro feature — license key required",
-  tool_tier: "pro",
-  message: "This tool requires a SiteHealth MCP Pro license. Free tools: check_ssl, check_dns.",
-  upgrade_url: "https://mcpize.com/mcp/sitehealth-mcp?ref=YHCCR",
-  pricing: "$19/mo or $190/yr",
-  free_tools: ["check_ssl", "check_dns"],
-  pro_tools: ["audit_site", "check_email_auth", "check_performance", "check_uptime", "check_links"],
-}, null, 2);
-
-function proGate(): { content: { type: "text"; text: string }[] } | null {
-  if (isPro) return null;
-  return { content: [{ type: "text" as const, text: PRO_UPGRADE_MSG }] };
-}
-
 const server = new McpServer(
   { name: "sitehealth-mcp", version: "0.1.0" },
   {
@@ -76,9 +57,6 @@ server.registerTool(
     annotations: { readOnlyHint: true },
   },
   async ({ url, checkLinks: doLinks, maxLinks }) => {
-    const blocked = proGate();
-    if (blocked) return blocked;
-
     const shouldCheckLinks = doLinks !== false;
     const linkLimit = maxLinks ?? 50;
 
@@ -164,9 +142,6 @@ server.registerTool(
     annotations: { readOnlyHint: true },
   },
   async ({ url }) => {
-    const blocked = proGate();
-    if (blocked) return blocked;
-
     const result = await checkEmailAuth(url);
     return {
       content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
@@ -187,9 +162,6 @@ server.registerTool(
     annotations: { readOnlyHint: true },
   },
   async ({ url }) => {
-    const blocked = proGate();
-    if (blocked) return blocked;
-
     const result = await checkPerformance(url);
     return {
       content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
@@ -208,9 +180,6 @@ server.registerTool(
     annotations: { readOnlyHint: true },
   },
   async ({ url }) => {
-    const blocked = proGate();
-    if (blocked) return blocked;
-
     const result = await checkUptime(url);
     return {
       content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
@@ -232,9 +201,6 @@ server.registerTool(
     annotations: { readOnlyHint: true },
   },
   async ({ url, maxLinks }) => {
-    const blocked = proGate();
-    if (blocked) return blocked;
-
     const result = await checkLinks(url, maxLinks ?? 50);
     return {
       content: [{ type: "text" as const, text: JSON.stringify(result, null, 2) }],
